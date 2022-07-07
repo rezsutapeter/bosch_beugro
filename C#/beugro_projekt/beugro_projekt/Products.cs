@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace beugro_projekt
 {
-    class Products
+    public class Products
     {
         public int Id { get; set; }
         public string Pcb { get; set; }

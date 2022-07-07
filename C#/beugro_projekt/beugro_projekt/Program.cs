@@ -6,7 +6,9 @@ namespace beugro_projekt
     {
         static void Main(string[] args)
         {
-            
+            Process p = new Process();
+            p.ReadandFill();
+            Console.ReadKey();
         }
     }
 }

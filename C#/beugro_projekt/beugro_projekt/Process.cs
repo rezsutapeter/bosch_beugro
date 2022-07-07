@@ -15,5 +15,30 @@ namespace beugro_projekt
         string username = "root";
         string password = "admin";
 
+        //Lists
+        List<Products> products = new List<Products>();
+
+        public void ReadandFill()
+        {
+            //CONNECTION
+            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            MySqlConnection conn = new MySqlConnection(constring);
+            conn.Open();
+            //QUERY
+            string query = "SELECT * FROM products";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            //READ
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //FILLING PRODUCTS LIST
+            while (reader.Read())
+            {
+                var filling = new Products((int)reader["id"], (string)reader["pcb"]);
+                products.Add(filling);
+            }
+            conn.Close();
+            //LIST FILLING TEST
+            products.ForEach(i => Console.WriteLine("ID: {0} PCB: {1}",i.Id.ToString(),i.Pcb));
+        }
     }
 }
