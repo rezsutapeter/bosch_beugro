@@ -6,7 +6,7 @@ namespace beugro_projekt
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
