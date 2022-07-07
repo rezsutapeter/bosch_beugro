@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace beugro_projekt
 {
@@ -13,5 +14,6 @@ namespace beugro_projekt
         string database = "cs_beugro";
         string username = "root";
         string password = "admin";
+
     }
 }
