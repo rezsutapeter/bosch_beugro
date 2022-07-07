@@ -17,6 +17,8 @@ namespace beugro_projekt
 
         //Lists
         List<Products> products = new List<Products>();
+        List<Production> productions = new List<Production>();
+        List<int> realrandomhelper = new List<int>();
 
         public void ReadandFill()
         {
@@ -39,6 +41,11 @@ namespace beugro_projekt
             conn.Close();
             //LIST FILLING TEST
             products.ForEach(i => Console.WriteLine("ID: {0} PCB: {1}",i.Id.ToString(),i.Pcb));
+        }
+
+        public void GenerateProductions()
+        {
+
         }
     }
 }
