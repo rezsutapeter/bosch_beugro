@@ -137,5 +137,19 @@ namespace beugro_projekt
             Console.WriteLine("\nDecrypted datas from Puffer.txt\n");
             productions.ForEach(i => Console.WriteLine("pcb_id: {0} \nquanity: {1} \nstartDate: {2} \nendDate: {3}\n", i.Pcb_id, i.Quantity, i.startDate, i.endDate));
         }
+
+        public void insertProduction()
+        {
+            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            MySqlConnection conn = new MySqlConnection(constring);
+            conn.Open();
+            for (int i = 0; i < productions.Count; i++)
+            {
+                string update = "INSERT INTO production (pcb_id,quantity,startDate,endDate) VALUES('" + productions[i].Pcb_id + "','" + productions[i].Quantity + "','" + productions[i].startDate.ToString("yyyy-MM-dd HH:mm:ss.fff") + "','" + productions[i].endDate.ToString("yyyy-MM-dd HH:mm:ss.fff") + "')";
+                MySqlCommand cmd2 = new MySqlCommand(update, conn);
+                cmd2.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
     }
 }
