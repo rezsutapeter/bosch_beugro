@@ -11,6 +11,7 @@ namespace beugro_projekt
             p.GenerateProductions();
             p.CreatePuffer();
             p.ReadPuffer();
+            p.DecryptData();
             Console.ReadKey();
         }
     }

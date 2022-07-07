@@ -118,5 +118,24 @@ namespace beugro_projekt
                 Console.WriteLine(removelist[i]);
             }
         }
+
+        public void DecryptData()
+        {
+            string[] str = new string[removelist.Count];
+            int rmlast = 0;
+            for (int i = 0; i < removelist.Count; i++)
+            {
+                str = removelist[i].Split('|');
+                productions[i].Pcb_id = int.Parse(str[0]);
+                productions[i].Quantity = int.Parse(str[1]);
+                productions[i].startDate = DateTime.Parse(str[2]);
+                productions[i].endDate = DateTime.Parse(str[3]);
+                productions[i].Pcb_id = int.Parse(str[0]);
+                rmlast = i;
+            }
+            productions.RemoveAt(rmlast);
+            Console.WriteLine("\nDecrypted datas from Puffer.txt\n");
+            productions.ForEach(i => Console.WriteLine("pcb_id: {0} \nquanity: {1} \nstartDate: {2} \nendDate: {3}\n", i.Pcb_id, i.Quantity, i.startDate, i.endDate));
+        }
     }
 }
