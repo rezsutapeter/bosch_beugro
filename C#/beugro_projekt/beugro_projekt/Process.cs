@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace beugro_projekt
         List<Products> products = new List<Products>();
         List<Production> productions = new List<Production>();
         List<int> realrandomhelper = new List<int>();
+        List<string> removelist = new List<string>();
 
         public void ReadandFill()
         {
@@ -50,7 +52,6 @@ namespace beugro_projekt
             Random t1 = new Random();
             Random t2 = new Random();
             int index;
-            int count = 0;
             //I EQUALS 10 to generate exactly 10
             for (int i = 0; i < 10; i++)
             {
@@ -85,6 +86,37 @@ namespace beugro_projekt
             //GENERATED DATAS TEST
             Console.WriteLine("\nGenerated Datas: \n");
             productions.ForEach(i => Console.WriteLine("pcb_id: {0}\nquantity: {1}\nstartDate: {2}\nendDate: {3}\n", i.Pcb_id, i.Quantity, i.startDate,i.endDate));
+        }
+
+        public void CreatePuffer()
+        {
+            using (StreamWriter opfile = new StreamWriter("Puffer.txt"))
+            {
+                for (int i = 0; i < productions.Count; i++)
+                {
+                    opfile.WriteLine(productions[i].Pcb_id.ToString() + "|" + productions[i].Quantity.ToString() + "|" + productions[i].startDate.ToString() + "|" + productions[i].endDate.ToString());
+                }
+            }
+        }
+
+        public void ReadPuffer()
+        {
+            removelist = File.ReadAllLines("Puffer.txt").ToList();
+            removelist.RemoveAt(3);
+            string s = "";
+            for (int i = 0; i < removelist.Count; i++)
+            {
+                s = removelist[i].Substring(0, 2);
+                if (s=="4|")
+                {
+                    removelist.RemoveAt(i);
+                }
+            }
+            Console.WriteLine("\nDatas read from Puffer.txt (The 4th object is deleted and ID:4 no longer contained)\n");
+            for (int i = 0; i < removelist.Count; i++)
+            {
+                Console.WriteLine(removelist[i]);
+            }
         }
     }
 }

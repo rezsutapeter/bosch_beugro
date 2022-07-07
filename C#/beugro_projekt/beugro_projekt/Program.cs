@@ -9,6 +9,8 @@ namespace beugro_projekt
             Process p = new Process();
             p.ReadandFill();
             p.GenerateProductions();
+            p.CreatePuffer();
+            p.ReadPuffer();
             Console.ReadKey();
         }
     }
