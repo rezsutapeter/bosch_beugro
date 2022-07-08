@@ -14,7 +14,7 @@ namespace beugro_projekt
         string server = "localhost";
         string database = "cs_beugro";
         string username = "root";
-        string password = "admin";
+        string password = "";
 
         //Lists
         List<Products> products = new List<Products>();
