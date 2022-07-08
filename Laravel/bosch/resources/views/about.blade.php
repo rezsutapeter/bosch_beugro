@@ -16,8 +16,8 @@
           Menu
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Center</a>
-          <a class="dropdown-item" href="#">Production</a>
+          <a class="dropdown-item" href="\center">Center</a>
+          <a class="dropdown-item" href="\production">Production</a>
         </div>
       </li>
     </ul>
