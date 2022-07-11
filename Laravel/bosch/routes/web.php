@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/center', function () {
 Route::get('/production', function () {
     return view('production');
 });
+
+Route::get('/production',[ShowController::class,'show']);
