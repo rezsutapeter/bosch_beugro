@@ -40,8 +40,13 @@
     <td>{{ $product->endDate }}</td>
     <td><a href = 'delete/{{ $product->ID }}'>Delete</a></td>
     </tr>
+    </form>
     @endforeach
     </table>
+    <form action="search" method="get">
+    <input name="search" type="search" placeholder="Search a PCB"></input>
+    <button type="submit">Search</button>
+    </form>
 </body>
 </html>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

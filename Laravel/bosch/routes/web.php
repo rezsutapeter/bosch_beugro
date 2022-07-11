@@ -24,3 +24,4 @@ Route::get('/center', function () {
 
 Route::get('/production','App\Http\Controllers\ProdController@index');
 Route::get('delete/{id}','App\Http\Controllers\ProdController@destroy');
+Route::get('/search','App\Http\Controllers\ProdController@search');

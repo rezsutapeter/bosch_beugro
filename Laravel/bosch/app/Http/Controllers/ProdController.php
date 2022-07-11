@@ -15,4 +15,9 @@ public function destroy($id) {
     DB::delete('delete from production where id = ?',[$id]);
     return redirect('production');
     }
+public function search(Request $request){;
+        $search = $request->get('search');
+        $production = DB::select('select * from production WHERE pcb_id=?',[$search]);
+        return view('production',['production'=>$production]);
+}
 }
