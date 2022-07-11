@@ -38,6 +38,7 @@
     <td>{{ $product->quantity }}</td>
     <td>{{ $product->startDate }}</td>
     <td>{{ $product->endDate }}</td>
+    <td><a href = 'delete/{{ $product->ID }}'>Delete</a></td>
     </tr>
     @endforeach
     </table>

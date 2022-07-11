@@ -10,7 +10,9 @@ class Prodcontroller extends Controller {
 public function index(){
 $production = DB::select('select * from production');
 return view('production',['production'=>$production]);
-
 }
-
+public function destroy($id) {
+    DB::delete('delete from production where id = ?',[$id]);
+    return redirect('production');
+    }
 }
